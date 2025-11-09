@@ -1,0 +1,63 @@
+Name: Bader Faris
+Student Number: 101304229
+
+information for each file:
+
+README.txt: Explains everything 
+Faris_Bader_101304229_A3_Q1 : all the code written 
+Makefile: used for running the code
+video: you only need to watch up to 4:21 of the video, cause the rest of it is just talking 
+about the importantance of following the instructions
+
+Intructions to download libpq on mac:
+open mac terminal 
+copy and paste this into terminal "brew install libpq"
+then copy and paste this into terminal "brew link --force libpq"
+then to double check copy and paste "ls /opt/homebrew/include"
+this should now be on your system "libpq-fe.h"
+
+Intructions For running the code on Mac(any other tech, unknown if it runs the same):
+STEP 1 ** before doing this you need to down libpq first cause its needed for running this **
+
+STEP 2 ** you must insert the data from the class instructions or from the parts I include here into postgres Database, 
+
+open Postgres 
+log in if needed
+right click on "database"
+press "create"
+then press "database"
+you must name it "Faris_Bader_101304229_A3_Q1"
+then when you open database now, there should be a file named "Faris_Bader_101304229_A3_Q1"
+open that file, 
+then open "schemas"
+then open "public"
+then right "click Tables"
+then press "Query tools"
+this should take you to a window, when you can type code copy and paste the table below
+CREATE TABLE students (
+student_id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+first_name VARCHAR(255) NOT NULL,
+last_name VARCHAR(255) NOT NULL,
+email VARCHAR(255) UNIQUE NOT NULL,
+enrollment_date DATE
+);
+then do this 
+INSERT INTO students (first_name, last_name, email, enrollment_date) VALUES
+('John', 'Doe', 'john.doe@example.com', '2023-09-01'),
+('Jane', 'Smith', 'jane.smith@example.com', '2023-09-01'),
+('Jim', 'Beam', 'jim.beam@example.com', '2023-09-02');
+Fyi you should refresh your table, by right clicking on tables and pressing refresh to update that the tables and data got added sometimes it doesn't show even if its there
+
+
+STEP 3 ** now that you have downloaded STEP 1, make your make to the folder you downloaded using the instructions from STEP 4 if needed, then use write this into the terminal "export PGCONN='host=localhost port=5432 dbname=Faris_Bader_101304229_A3_Q1 user=postgres password=YOUR_PASSWORD'" if you have a different user put that, but it should be postgres and the password was the one you made ** 
+Also verify you are on the correct port on postgres, if you don't know the port, copy and paste this " SHOW port; " in the same window you made the tables and data in the tables, it will show you the port number 
+
+STEP 4 **
+Download Zipped file
+unzip file
+drag into Vscode or VM of your choosing
+open terminal 
+using "ls" and "cd" navigate to unzipped folder(make sure you enter the Bonus file)
+type "make clean"
+then type "make"
+lastly "./Faris_Bader_101304229_A3_Q1"
